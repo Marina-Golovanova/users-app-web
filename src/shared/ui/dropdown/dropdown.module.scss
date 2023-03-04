@@ -5,11 +5,10 @@
   box-shadow: inset 0px 4px 12px -4px var(--kylo-ren);
   backdrop-filter: blur(10px);
   border-radius: 16px;
-  display: inline-flex;
-  flex-direction: column;
   padding: 8px;
   max-height: 256px;
   overflow-y: scroll;
+  width: max-content;
 
   &::-webkit-scrollbar {
     width: 0;
@@ -19,12 +18,12 @@
 
 .option {
   height: 40px;
-  padding: 0 16px;
+  padding: 10px 0 10px 16px;
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-3);
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .notSelectedOption {
@@ -40,7 +39,6 @@
 }
 
 .selectedOption {
-  height: 48px;
   color: var(--qui-gon-jinn);
 }
 
@@ -48,7 +46,5 @@
   height: 1px;
   width: 48px;
   background-color: var(--chewbacca);
-  align-self: center;
-  flex-shrink: 0;
-  margin: 8px 0;
+  margin: 8px auto;
 }

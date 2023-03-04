@@ -1,3 +1,4 @@
+import React from "react";
 import cn from "classnames";
 
 import styles from "./dropdown.module.scss";
@@ -21,7 +22,7 @@ export const Dropdown: React.FC<IDropdownProps> = (props) => {
       )}
 
       {props.options.map((option) => (
-        <>
+        <React.Fragment key={option}>
           {option !== props.selectedOption && (
             <div
               className={cn(styles.option, styles.notSelectedOption)}
@@ -30,7 +31,7 @@ export const Dropdown: React.FC<IDropdownProps> = (props) => {
               {option}
             </div>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
