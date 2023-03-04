@@ -11,7 +11,7 @@ export default {
 } as ComponentMeta<typeof ButtonWithIcon>;
 
 const SimpleTemplate: Story<IButtonWithIconProps> = (props) => {
-  return <ButtonWithIcon {...props}>{props.icon}</ButtonWithIcon>;
+  return <ButtonWithIcon {...props} />;
 };
 
 export const Simple = SimpleTemplate.bind({});
