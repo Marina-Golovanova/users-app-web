@@ -1,0 +1,27 @@
+.usersListPageLayout {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  width: 100%;
+}
+
+.inputSearchLayout {
+  width: 305px;
+}
+
+.filterLayout {
+  margin-top: 24px;
+  display: flex;
+  gap: 8px;
+}
+
+.userTableListLayout {
+  flex-grow: 1;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.paginationLayout {
+  margin: 0 auto;
+  margin-top: 34px;
+}

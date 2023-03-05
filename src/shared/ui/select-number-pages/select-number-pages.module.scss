@@ -1,11 +1,6 @@
-.paginationLayout {
-  display: inline-flex;
-  align-items: center;
-  gap: 21px;
-}
-
-.pagesText {
+.label {
   color: var(--hun-solo);
   font-weight: var(--font-weight-1);
   font-size: var(--font-size-small);
+  margin-right: 16px;
 }

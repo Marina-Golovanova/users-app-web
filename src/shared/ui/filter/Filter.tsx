@@ -6,7 +6,6 @@ import styles from "./filter.module.scss";
 export type IFilterProps = {
   name?: string;
   value?: string;
-  label?: string;
   isResetAvailable?: boolean;
   size?: "s" | "m";
   filterIcon?: React.ReactNode;
@@ -23,7 +22,6 @@ export const Filter: React.FC<IFilterProps> = ({
 }) => {
   return (
     <div className={styles.filterLayout}>
-      {props.label && <div className={styles.label}>{props.label}</div>}
       <div
         className={cn(styles.filter, styles[size])}
         onClick={props.onFilterClick}

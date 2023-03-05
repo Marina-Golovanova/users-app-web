@@ -1,6 +1,5 @@
 import { action } from "@storybook/addon-actions";
 import { Filter } from "./Filter";
-import { ArrowDownIcon } from "../icons/ArrowDownIcon";
 
 import type { ComponentMeta, Story } from "@storybook/react";
 import type { IFilterProps } from "./Filter";
@@ -28,16 +27,4 @@ WithSelectedValue.args = {
   isResetAvailable: true,
   onFilterClick: action("onFilter"),
   onDeleteIconClick: action("onDelete"),
-};
-
-export const PageFilter = Template.bind({});
-
-PageFilter.args = {
-  value: "10",
-  size: "m",
-  filterIcon: <ArrowDownIcon />,
-  filterIconSize: "m",
-  label: "Rows per page:",
-  onFilterClick: action("onFilter"),
-  onFilterIconClick: action("onFilterIcon"),
 };

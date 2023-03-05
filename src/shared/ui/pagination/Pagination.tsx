@@ -19,7 +19,7 @@ export const Pagination: React.FC<IPaginationProps> = (props) => {
         icon={<ArrowLeftIcon />}
         disabled={props.currentPage <= 1}
       />
-      <div>
+      <div className={styles.pagesText}>
         {props.currentPage} / {props.totalPages}
       </div>
       <ButtonWithIcon
