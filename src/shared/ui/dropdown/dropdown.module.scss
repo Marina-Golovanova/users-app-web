@@ -7,7 +7,7 @@
   border-radius: 16px;
   padding: 8px;
   max-height: 256px;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: max-content;
 
   &::-webkit-scrollbar {

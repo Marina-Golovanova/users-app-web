@@ -1,0 +1,23 @@
+.userTableGrid {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  grid-template-columns: 2fr 1.07fr 1.45fr 0.7fr 1.15fr 0.8fr 1.28fr;
+  border-radius: 12px;
+  padding: 0 8px;
+
+  &.head {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    grid-template-rows: 45px;
+    padding-top: 9px;
+    border-radius: 0;
+  }
+
+  &.row {
+    grid-template-rows: 64px;
+    background: var(--sheev-palpatine);
+    border: 1px solid var(--r2-d2);
+  }
+}
