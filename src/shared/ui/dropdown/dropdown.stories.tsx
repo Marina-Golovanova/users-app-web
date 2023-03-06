@@ -24,6 +24,6 @@ export const WithScroll = Template.bind({});
 
 WithScroll.args = {
   options: ["RU", "RS", "US", "UK", "BR", "AB", "ES"],
-  selectedOption: "RU",
+  values: ["RU"],
   onSelectOption: action("onSelectOption"),
 };

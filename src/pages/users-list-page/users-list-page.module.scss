@@ -22,6 +22,17 @@
 }
 
 .paginationLayout {
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   margin-top: 34px;
+}
+
+.paginationCell {
+  display: flex;
+  justify-content: center;
+}
+
+.pagesSelectCell {
+  display: flex;
+  justify-content: right;
 }

@@ -1,4 +1,5 @@
-export type IUserType = {
+export type IUser = {
+  id: string;
   firstName: string;
   lastName: string;
   avatar: string;

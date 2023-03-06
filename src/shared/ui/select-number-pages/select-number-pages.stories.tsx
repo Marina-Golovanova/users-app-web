@@ -16,5 +16,5 @@ export const Simple = Template.bind({});
 
 Simple.args = {
   options: ["10", "50", "100"],
-  value: "10",
+  values: ["10"],
 };

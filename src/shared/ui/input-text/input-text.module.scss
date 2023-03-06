@@ -14,14 +14,11 @@
   border: none;
   outline: none;
   padding: 0 16px;
+  color: var(--hun-solo);
 
   &::placeholder {
     color: var(--luke-skywalker);
     font-weight: var(--font-weight-2);
-  }
-
-  &:focus {
-    color: var(--hun-solo);
   }
 }
 

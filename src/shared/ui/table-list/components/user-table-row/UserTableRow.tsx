@@ -2,11 +2,11 @@ import { UserCard } from "../../../user-card";
 import { UserTableCell } from "../user-table-cell";
 import { UserTableGrid } from "../user-table-grid";
 
-import type { IUserType } from "../../../../domain/types";
+import type { IUser } from "../../../../domain/types";
 
 import styles from "./user-table-row.module.scss";
 
-export type IUserTableRowProps = IUserType;
+export type IUserTableRowProps = IUser;
 
 // TODO Научить компонент работать с любыми данными
 

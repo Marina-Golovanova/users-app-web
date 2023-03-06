@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 8px;
   height: 100%;
-  background: var(--darth-vader);
+  background-color: var(--darth-vader);
   border-radius: 16px;
   padding: 0 9px 12px;
   overflow: auto;
@@ -12,4 +12,11 @@
     width: 0;
     height: 0;
   }
+}
+
+.loader {
+  padding: 1em;
+  color: var(--hun-solo);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-3);
 }

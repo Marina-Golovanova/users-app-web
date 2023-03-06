@@ -5,11 +5,11 @@ import styles from "./filter.module.scss";
 
 export type IFilterProps = {
   name?: string;
-  value?: string;
-  isResetAvailable?: boolean;
+  values: string[];
   size?: "s" | "m";
   filterIcon?: React.ReactNode;
   filterIconSize?: "s" | "m";
+  isResetAvailable?: boolean;
   onFilterClick?: () => void;
   onDeleteIconClick?: () => void;
   onFilterIconClick?: () => void;
@@ -27,8 +27,12 @@ export const Filter: React.FC<IFilterProps> = ({
         onClick={props.onFilterClick}
       >
         {props.name && <div className={styles.filterName}>{props.name}</div>}
-        {props.value && <div className={styles.filterValue}>{props.value}</div>}
-        {props.value && props.isResetAvailable && (
+        {props.values.map((value) => (
+          <div className={styles.filterValue} key={value}>
+            {value}
+          </div>
+        ))}
+        {!!props.values.length && props.isResetAvailable && (
           <DeleteIcon
             className={styles.icon}
             onClick={props.onDeleteIconClick}

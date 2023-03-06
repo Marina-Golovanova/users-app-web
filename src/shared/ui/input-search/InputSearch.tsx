@@ -4,13 +4,18 @@ import { InputText } from "../input-text";
 
 import styles from "./input-search.module.scss";
 
-export const InputSearch = React.forwardRef<
-  HTMLInputElement,
-  React.InputHTMLAttributes<HTMLInputElement>
->(function InputSearch(props, ref) {
+export type IInputSearchProps = {
+  placeholder: string;
+  onSearch: (value: string) => void;
+};
+
+export const InputSearch: React.FC<IInputSearchProps> = (props) => {
   return (
-    <InputText ref={ref} {...props}>
+    <InputText
+      placeholder={props.placeholder}
+      onChange={(e) => props.onSearch(e.target.value)}
+    >
       <SearchIcon className={styles.inputSearchIcon} />
     </InputText>
   );
-});
+};

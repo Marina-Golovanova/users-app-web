@@ -5,25 +5,28 @@ import styles from "./dropdown.module.scss";
 
 export type IDropdownProps = {
   options: string[];
-  selectedOption?: string;
+  values: string[];
   onSelectOption: (option: string) => void;
 };
 
 export const Dropdown: React.FC<IDropdownProps> = (props) => {
   return (
     <div className={styles.dropdownLayout}>
-      {props.selectedOption && (
-        <>
-          <div className={cn(styles.option, styles.selectedOption)}>
-            {props.selectedOption}
+      {props.values.map((el) => (
+        <React.Fragment key={el}>
+          <div
+            className={cn(styles.option, styles.selectedOption)}
+            onClick={() => props.onSelectOption(el)}
+          >
+            {el}
           </div>
           <div className={styles.border} />
-        </>
-      )}
+        </React.Fragment>
+      ))}
 
       {props.options.map((option) => (
         <React.Fragment key={option}>
-          {option !== props.selectedOption && (
+          {!props.values.includes(option) && (
             <div
               className={cn(styles.option, styles.notSelectedOption)}
               onClick={() => props.onSelectOption(option)}

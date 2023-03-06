@@ -23,7 +23,7 @@ export const Select: React.FC<ISelectProps> = (props) => {
     referenceElement,
     popperElement,
     {
-      placement: "top-start",
+      placement: "bottom-start",
       modifiers: [
         dropdownPositionModifier,
         { name: "offset", options: { offset: [0, 14] } },
@@ -46,6 +46,7 @@ export const Select: React.FC<ISelectProps> = (props) => {
             <Dropdown
               options={props.options}
               onSelectOption={props.onSelectOption}
+              values={props.values}
             />
           </div>,
           document.body

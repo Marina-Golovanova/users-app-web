@@ -1,30 +1,43 @@
 import { InputSearch } from "../../shared/ui/input-search";
 import { Pagination } from "../../shared/ui/pagination";
 import { Select } from "../../shared/ui/select";
+import { SelectNumberPages } from "../../shared/ui/select-number-pages";
 import { UserTableList } from "../../shared/ui/table-list/UserTableList";
 import { UsersListLayout } from "../../shared/ui/users-list-layout";
+import { useUsers } from "./hooks";
 
 import styles from "./users-list-page.module.scss";
 
 export const UsersListPage: React.FC = () => {
+  const { users, nationalities, loader, filters } = useUsers();
+
   return (
     <UsersListLayout>
       <div className={styles.usersListPageLayout}>
         <div className={styles.inputSearchLayout}>
-          <InputSearch />
+          <InputSearch
+            placeholder="Search"
+            onSearch={filters.search.setValue}
+          />
         </div>
 
         <div className={styles.filterLayout}>
           <Select
             name="Gender equal"
+            values={filters.gender.value}
             options={["male", "female"]}
-            onSelectOption={() => console.log("select gender")}
+            isResetAvailable={true}
+            onSelectOption={filters.gender.setValue}
+            onDeleteIconClick={filters.gender.reset}
           />
 
           <Select
             name="Nationality"
-            options={["RU", "AU"]}
-            onSelectOption={() => console.log("select nationality")}
+            values={filters.nationality.value}
+            options={nationalities}
+            isResetAvailable={true}
+            onSelectOption={filters.nationality.setValue}
+            onDeleteIconClick={filters.nationality.reset}
           />
         </div>
 
@@ -39,114 +52,30 @@ export const UsersListPage: React.FC = () => {
               "Nationality",
               "Phone",
             ]}
-            userTableRows={[
-              {
-                firstName: "Zaire",
-                lastName: "Botosh",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1",
-                email: "asd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-              {
-                firstName: "Zaire",
-                lastName: "Botosh",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1",
-                email: "asd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-              {
-                firstName: "Zaire",
-                lastName: "Botosh",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1",
-                email: "asd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-              {
-                firstName: "Zaire",
-                lastName: "Botosh",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1111111111",
-                email: "asd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-              {
-                firstName: "Zaire",
-                lastName: "Botosh",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1",
-                email: "asd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-              {
-                firstName: "Zaire",
-                lastName: "Botoshsdffffdsdf",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1",
-                email: "asd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-              {
-                firstName: "Zaire",
-                lastName: "Botosh",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1",
-                email: "asdfsdfasdfdd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-              {
-                firstName: "Zaire",
-                lastName: "Botosh",
-                avatar:
-                  "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-                location: "Timeless 1",
-                email: "asd@gmail.com",
-                birthday: "14.04.1992",
-                gender: "male",
-                nationality: "BR",
-                phone: "(272) 790-0888",
-              },
-            ]}
+            userTableRows={users}
+            loader={loader}
           />
         </div>
 
         <div className={styles.paginationLayout}>
-          <Pagination
-            currentPage={1}
-            totalPages={200}
-            onPrevPage={() => console.log("prev")}
-            onNextPage={() => console.log("next")}
-          />
+          <div />
+
+          <div className={styles.paginationCell}>
+            <Pagination
+              currentPage={1}
+              totalPages={200}
+              onPrevPage={() => console.log("prev")}
+              onNextPage={() => console.log("next")}
+            />
+          </div>
+
+          <div className={styles.pagesSelectCell}>
+            <SelectNumberPages
+              values={["10"]}
+              options={["10", "50", "100"]}
+              onSelectOption={() => console.log("selectNumberPages")}
+            />
+          </div>
         </div>
       </div>
     </UsersListLayout>

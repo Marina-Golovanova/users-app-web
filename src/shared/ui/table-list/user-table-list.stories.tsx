@@ -26,6 +26,7 @@ Simple.args = {
   ],
   userTableRows: [
     {
+      id: "1",
       firstName: "Zaire",
       lastName: "Botosh",
       avatar:
@@ -38,66 +39,7 @@ Simple.args = {
       phone: "(272) 790-0888",
     },
     {
-      firstName: "Zaire",
-      lastName: "Botosh",
-      avatar:
-        "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-      location: "Timeless 1111111111",
-      email: "asd@gmail.com",
-      birthday: "14.04.1992",
-      gender: "male",
-      nationality: "BR",
-      phone: "(272) 790-0888",
-    },
-    {
-      firstName: "Zaire",
-      lastName: "Botosh",
-      avatar:
-        "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-      location: "Timeless 1",
-      email: "asd@gmail.com",
-      birthday: "14.04.1992",
-      gender: "male",
-      nationality: "BR",
-      phone: "(272) 790-0888",
-    },
-    {
-      firstName: "Zaire",
-      lastName: "Botoshsdffffdsdf",
-      avatar:
-        "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-      location: "Timeless 1",
-      email: "asd@gmail.com",
-      birthday: "14.04.1992",
-      gender: "male",
-      nationality: "BR",
-      phone: "(272) 790-0888",
-    },
-    {
-      firstName: "Zaire",
-      lastName: "Botosh",
-      avatar:
-        "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-      location: "Timeless 1",
-      email: "asdfsdfasdfdd@gmail.com",
-      birthday: "14.04.1992",
-      gender: "male",
-      nationality: "BR",
-      phone: "(272) 790-0888",
-    },
-    {
-      firstName: "Zaire",
-      lastName: "Botosh",
-      avatar:
-        "https://anime-star.ru/wp-content/uploads/2021/12/Nyashnye-anime-avatarki-tyan_04.jpg",
-      location: "Timeless 1",
-      email: "asd@gmail.com",
-      birthday: "14.04.1992",
-      gender: "male",
-      nationality: "BR",
-      phone: "(272) 790-0888",
-    },
-    {
+      id: "2",
       firstName: "Zaire",
       lastName: "Botosh",
       avatar:
@@ -110,6 +52,7 @@ Simple.args = {
       phone: "(272) 790-0888",
     },
     {
+      id: "3",
       firstName: "Zaire",
       lastName: "Botosh",
       avatar:
@@ -122,6 +65,7 @@ Simple.args = {
       phone: "(272) 790-0888",
     },
     {
+      id: "4",
       firstName: "Zaire",
       lastName: "Botoshsdffffdsdf",
       avatar:
@@ -134,6 +78,7 @@ Simple.args = {
       phone: "(272) 790-0888",
     },
     {
+      id: "5",
       firstName: "Zaire",
       lastName: "Botosh",
       avatar:

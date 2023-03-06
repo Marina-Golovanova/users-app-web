@@ -17,13 +17,15 @@ export const Simple = Template.bind({});
 
 Simple.args = {
   name: "Nationality",
+  values: ["RU", "SR"],
+  isResetAvailable: true,
 };
 
 export const WithSelectedValue = Template.bind({});
 
 WithSelectedValue.args = {
   name: "Gender equal",
-  value: "male",
+  values: [],
   isResetAvailable: true,
   onFilterClick: action("onFilter"),
   onDeleteIconClick: action("onDelete"),

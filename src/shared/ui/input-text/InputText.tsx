@@ -3,10 +3,6 @@ import cn from "classnames";
 
 import styles from "./input-text.module.scss";
 
-export type IInputTextProps = {
-  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
-};
-
 export const InputText = React.forwardRef<
   HTMLInputElement,
   React.InputHTMLAttributes<HTMLInputElement>

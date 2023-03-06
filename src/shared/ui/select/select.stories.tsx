@@ -17,4 +17,5 @@ export const Simple = Template.bind({});
 Simple.args = {
   name: "Nationality",
   options: ["RU", "RS", "US", "UK", "BR", "AB", "ES"],
+  values: [],
 };
