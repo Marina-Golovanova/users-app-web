@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { usePopper } from "react-popper";
+import { useClickOutside } from "../../hooks/useClickOutside";
 import { Dropdown, IDropdownProps } from "../dropdown";
 import { Filter } from "../filter";
 import { dropdownPositionModifier } from "./utils/dropdownPositionModifier";
@@ -8,7 +9,6 @@ import { dropdownPositionModifier } from "./utils/dropdownPositionModifier";
 import type { IFilterProps } from "../filter";
 
 import styles from "./select.module.scss";
-import { useClickOutside } from "../../hooks/useClickOutside";
 
 export type ISelectProps = IFilterProps & IDropdownProps;
 
