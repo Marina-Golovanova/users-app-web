@@ -1,14 +1,15 @@
 import { SelectNumberPages } from "./SelectNumberPages";
 
+import { ISelectProps } from "../select/Select";
+
 import type { ComponentMeta, Story } from "@storybook/react";
-import type { ISelectNumberPagesProps } from "./SelectNumberPages";
 
 export default {
   title: "SelectNumberPages",
   component: SelectNumberPages,
 } as ComponentMeta<typeof SelectNumberPages>;
 
-const Template: Story<ISelectNumberPagesProps> = (props) => {
+const Template: Story<ISelectProps> = (props) => {
   return <SelectNumberPages {...props} />;
 };
 

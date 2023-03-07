@@ -1,5 +1,6 @@
 import React from "react";
 import { requestUsers } from "../../../shared/api";
+import { checkStartWith } from "../utils/checkStartWith";
 
 import type { IUser } from "../../../shared/domain/types";
 
@@ -32,29 +33,18 @@ export const useUsers = () => {
       .catch((e) => {
         setIsLoading(false);
         setIsLoaded(true);
-        console.log(e);
       });
-  }, [
-    genderFilter,
-    nationalityFilter,
-    pageFilter,
-    resultsNumberFilter,
-    searchFilter,
-  ]);
+  }, [genderFilter, nationalityFilter, pageFilter, resultsNumberFilter]);
 
-  React.useEffect(() => {
-    if (searchFilter) {
-      setUsers(
-        users.filter(
-          (user) =>
-            user.firstName
-              .toLowerCase()
-              .startsWith(searchFilter.toLowerCase()) ||
-            user.lastName.toLowerCase().startsWith(searchFilter.toLowerCase())
-        )
-      );
-    }
-  }, [searchFilter, users]);
+  const filteredUsers = React.useMemo(
+    () =>
+      users.filter(
+        (user) =>
+          checkStartWith(user.firstName, searchFilter) ||
+          checkStartWith(user.lastName, searchFilter)
+      ),
+    [searchFilter, users]
+  );
 
   const handleSelectNationality = (nationality: IUser["nationality"]) => {
     if (nationalityFilter.includes(nationality)) {
@@ -75,7 +65,7 @@ export const useUsers = () => {
   };
 
   return {
-    users,
+    users: filteredUsers,
     loader: {
       isLoading,
       isLoaded,
