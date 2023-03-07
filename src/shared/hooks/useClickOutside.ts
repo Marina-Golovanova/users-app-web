@@ -1,28 +1,16 @@
-import React, { RefObject } from "react";
+import { useOnClickOutside } from "usehooks-ts";
 
-type Event = MouseEvent | TouchEvent;
+import type React from "react";
 
-export const useOnClickOutside = <T extends HTMLElement>(
-  ref: RefObject<T>,
-  handler: (e: Event) => void
+export const useClickOutside = (
+  [ref, ...rest]: React.MutableRefObject<HTMLElement | null>[],
+  handle: (e: MouseEvent) => void
 ) => {
-  React.useEffect(() => {
-    const listener = (event: Event) => {
-      if (
-        !ref.current ||
-        ref.current.contains((event?.target as Node) || null)
-      ) {
-        return;
+  useOnClickOutside(ref, (e: MouseEvent) => {
+    rest.forEach((ref) => {
+      if (!ref.current?.contains(e.target as HTMLElement)) {
+        handle(e);
       }
-      handler(event);
-    };
-
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
-
-    return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
-    };
-  }, [ref, handler]);
+    });
+  });
 };

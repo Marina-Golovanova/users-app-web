@@ -10,6 +10,7 @@ export type IFilterProps = {
   filterIcon?: React.ReactNode;
   filterIconSize?: "s" | "m";
   isResetAvailable?: boolean;
+  wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
   onFilterClick?: () => void;
   onDeleteIconClick?: () => void;
   onFilterIconClick?: () => void;
@@ -21,7 +22,7 @@ export const Filter: React.FC<IFilterProps> = ({
   ...props
 }) => {
   return (
-    <div className={styles.filterLayout}>
+    <div className={styles.filterLayout} ref={props.wrapperRef}>
       <div
         className={cn(styles.filter, styles[size])}
         onClick={props.onFilterClick}

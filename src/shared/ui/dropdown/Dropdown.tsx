@@ -6,12 +6,13 @@ import styles from "./dropdown.module.scss";
 export type IDropdownProps = {
   options: string[];
   values: string[];
+  wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
   onSelectOption: (option: string) => void;
 };
 
 export const Dropdown: React.FC<IDropdownProps> = (props) => {
   return (
-    <div className={styles.dropdownLayout}>
+    <div className={styles.dropdownLayout} ref={props.wrapperRef}>
       {props.values.map((el) => (
         <React.Fragment key={el}>
           <div

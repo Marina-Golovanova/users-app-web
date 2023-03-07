@@ -8,6 +8,7 @@ import { dropdownPositionModifier } from "./utils/dropdownPositionModifier";
 import type { IFilterProps } from "../filter";
 
 import styles from "./select.module.scss";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 export type ISelectProps = IFilterProps & IDropdownProps;
 
@@ -31,11 +32,17 @@ export const Select: React.FC<ISelectProps> = (props) => {
     }
   );
 
+  const filterRef = React.useRef<HTMLDivElement | null>(null);
+  const dropdownRef = React.useRef<HTMLDivElement | null>(null);
+
+  useClickOutside([filterRef, dropdownRef], () => setIsDropdownVisible(false));
+
   return (
     <div className={styles.selectLayout}>
       <div ref={setReferenceElement}>
         <Filter
           {...props}
+          wrapperRef={filterRef}
           onFilterClick={() => setIsDropdownVisible((value) => !value)}
         />
       </div>
@@ -47,6 +54,7 @@ export const Select: React.FC<ISelectProps> = (props) => {
               options={props.options}
               onSelectOption={props.onSelectOption}
               values={props.values}
+              wrapperRef={dropdownRef}
             />
           </div>,
           document.body
