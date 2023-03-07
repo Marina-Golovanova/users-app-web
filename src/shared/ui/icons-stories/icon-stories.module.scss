@@ -1,0 +1,34 @@
+.tableLayout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 70px;
+  width: 150px;
+  border: 1px dotted var(--luke-skywalker);
+}
+
+.iconLayout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.iconName {
+  width: fit-content;
+  text-align: center;
+  font-size: var(--font-size-small);
+  color: var(--chewbacca);
+}

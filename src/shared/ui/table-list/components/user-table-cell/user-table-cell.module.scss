@@ -1,0 +1,9 @@
+.userTableCell {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-3);
+  color: var(--hun-solo);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 8px;
+}

@@ -1,0 +1,50 @@
+.dropdownLayout {
+  min-width: 94px;
+  background: var(--rey);
+  border: 1px solid var(--c-3po);
+  box-shadow: inset 0px 4px 12px -4px var(--kylo-ren);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 8px;
+  max-height: 256px;
+  overflow-y: auto;
+  width: max-content;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.option {
+  height: 40px;
+  padding: 10px 0 10px 16px;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-3);
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notSelectedOption {
+  color: var(--hun-solo);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: var(--darth-vader);
+    color: var(--bb-8);
+  }
+}
+
+.selectedOption {
+  color: var(--qui-gon-jinn);
+}
+
+.border {
+  height: 1px;
+  width: 48px;
+  background-color: var(--chewbacca);
+  margin: 8px auto;
+}

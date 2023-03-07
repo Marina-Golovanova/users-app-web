@@ -1,0 +1,23 @@
+.userCard {
+  display: flex;
+  align-items: center;
+}
+
+.userAvatar {
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--qui-gon-jinn);
+  border-radius: 120px;
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+}
+
+.userFullName {
+  color: var(--hun-solo);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-3);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
