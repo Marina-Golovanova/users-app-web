@@ -2,36 +2,47 @@ import { v4 as uuidv4 } from "uuid";
 import { IUser } from "../domain/types";
 
 export type IRequestUsersFilters = {
-  nationality: IUser["nationality"][];
-  search: string;
+  nationalities: IUser["nationality"][];
   gender: string[];
+  results: string;
+  page: number;
 };
 
 export const requestUsers = async (props: IRequestUsersFilters) => {
-  const res = await fetch("https://randomuser.me/api/?results=100");
-  const response: { results: any[] } = await res.json();
+  const pageFilter = `?page=${props.page}&results=${props.results}&seed=abs`;
 
-  const userList = response.results.map<IUser>((user) => ({
-    id: uuidv4(),
-    firstName: user.name.first,
-    lastName: user.name.last,
-    avatar: user.picture.thumbnail,
-    location: user.location.city,
-    email: user.email,
-    birthday: user.dob.date,
-    gender: user.gender as IUser["gender"],
-    nationality: user.nat,
-    phone: user.phone,
-  }));
+  const genderFilter = props.gender.length
+    ? `&gender=${props.gender.join()}`
+    : "";
 
-  const nationalities: string[] = Array.from(
-    new Set(userList.map((user) => user.nationality))
+  const nationalityFilter = props.nationalities.length
+    ? `&nat=${props.nationalities.join()}`
+    : "";
+
+  const res = await fetch(
+    `https://randomuser.me/api/${pageFilter}${genderFilter}${nationalityFilter}`
   );
 
-  nationalities.sort();
+  const response: { results: any[] } = await res.json();
 
-  return {
-    userList,
-    nationalities,
-  };
+  if (res.ok) {
+    const userList = response.results.map<IUser>((user) => ({
+      id: uuidv4(),
+      firstName: user.name.first,
+      lastName: user.name.last,
+      avatar: user.picture.thumbnail,
+      location: user.location.city,
+      email: user.email,
+      birthday: new Date(user.dob.date).toLocaleDateString("ru"),
+      gender: user.gender as IUser["gender"],
+      nationality: user.nat,
+      phone: user.phone,
+    }));
+
+    return {
+      userList,
+    };
+  }
+
+  throw new Error("Something went wrong");
 };

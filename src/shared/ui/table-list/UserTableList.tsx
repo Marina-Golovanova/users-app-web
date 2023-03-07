@@ -10,16 +10,21 @@ export type IUserTableListProps = {
   userTableRows: IUser[];
   loader: {
     isLoading: boolean;
+    isLoaded: boolean;
   };
 };
 
 export const UserTableList: React.FC<IUserTableListProps> = (props) => {
+  console.log(props.loader);
   return (
     <div className={styles.userTableList}>
       <UserTableHead userTableHeads={props.userTableHeads} />
-      {props.loader.isLoading && (
-        <span className={styles.loader}>Loading..</span>
-      )}
+      {props.loader.isLoading && <div className={styles.loader}>Loading..</div>}
+      {!props.loader.isLoading &&
+        props.loader.isLoaded &&
+        !props.userTableRows.length && (
+          <div className={styles.loader}>Something went wrong..</div>
+        )}
       {!props.loader.isLoading &&
         props.userTableRows.map((row) => (
           <UserTableRow {...row} key={row.id} />

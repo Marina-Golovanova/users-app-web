@@ -20,9 +20,10 @@ export const Dropdown: React.FC<IDropdownProps> = (props) => {
           >
             {el}
           </div>
-          <div className={styles.border} />
         </React.Fragment>
       ))}
+
+      {!!props.values.length && <div className={styles.border} />}
 
       {props.options.map((option) => (
         <React.Fragment key={option}>

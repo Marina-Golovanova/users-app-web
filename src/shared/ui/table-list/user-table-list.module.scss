@@ -19,4 +19,8 @@
   color: var(--hun-solo);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-3);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

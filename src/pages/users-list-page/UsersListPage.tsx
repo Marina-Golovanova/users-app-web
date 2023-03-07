@@ -4,12 +4,18 @@ import { Select } from "../../shared/ui/select";
 import { SelectNumberPages } from "../../shared/ui/select-number-pages";
 import { UserTableList } from "../../shared/ui/table-list/UserTableList";
 import { UsersListLayout } from "../../shared/ui/users-list-layout";
+import { nationalities } from "./constants";
 import { useUsers } from "./hooks";
 
 import styles from "./users-list-page.module.scss";
 
+const testMaxUsersNumber = 5000;
+
 export const UsersListPage: React.FC = () => {
-  const { users, nationalities, loader, filters } = useUsers();
+  const { users, loader, filters } = useUsers();
+  const totalPages = Math.ceil(
+    testMaxUsersNumber / Number(filters.resultsNumber.value)
+  );
 
   return (
     <UsersListLayout>
@@ -62,18 +68,18 @@ export const UsersListPage: React.FC = () => {
 
           <div className={styles.paginationCell}>
             <Pagination
-              currentPage={1}
-              totalPages={200}
-              onPrevPage={() => console.log("prev")}
-              onNextPage={() => console.log("next")}
+              currentPage={filters.page.value}
+              totalPages={totalPages}
+              onPrevPage={() => filters.page.setValue(filters.page.value - 1)}
+              onNextPage={() => filters.page.setValue(filters.page.value + 1)}
             />
           </div>
 
           <div className={styles.pagesSelectCell}>
             <SelectNumberPages
-              values={["10"]}
+              values={[String(filters.resultsNumber.value)]}
               options={["10", "50", "100"]}
-              onSelectOption={() => console.log("selectNumberPages")}
+              onSelectOption={filters.resultsNumber.setValue}
             />
           </div>
         </div>
